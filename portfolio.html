@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #6506ff;
+            --secondary-color: #03dac6;
+            --bg-color: #fcfcfc;
+            --text-color: #333;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            position: relative;
+        }
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        .nav-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: bold;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--secondary-color);
+            transition: width 0.3s ease;
+        }
+        nav a:hover {
+            color: var(--secondary-color);
+        }
+        nav a:hover::after {
+            width: 100%;
+        }
+        section {
+            padding: 4rem 0;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease, transform 0.6s ease;
+        }
+        section.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .skills-grid, .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .skill-card, .project-card {
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .skill-card:hover, .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        .project-card img {
+            max-width: 100%;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+        }
+        .contact-form {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .contact-form input, 
+        .contact-form textarea {
+            width: 100%;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: border-color 0.3s ease;
+        }
+        .contact-form input:focus, 
+        .contact-form textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        .contact-form button {
+            width: 100%;
+            padding: 0.75rem;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .contact-form button:hover {
+            background-color: #5300d6;
+        }
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+        #about img {
+            max-width: 250px;
+            border-radius: 50%;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header class="container">
+        <h1>Jyoti Gupta</h1>
+        <p>Web Developer | Tech Enthusiast</p>
+    </header>
+
+    <nav>
+        <div class="nav-container container">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#skills" class="nav-link">Skills</a>
+            <a href="#projects" class="nav-link">Projects</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section id="about">
+            <h2>About Me</h2>
+            <img src="jyoti image.jpeg" alt="Profile Picture">
+            <p>I'm a passionate web developer with expertise in full-stack technologies. I love creating innovative solutions and continuously learning new technologies.
+                I’m always eager to learn, grow, and collaborate on exciting projects that make an impact.
+            </p>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <p>HTML, CSS, JavaScript, angular</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <p>Python, Flask, Node.js</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Database</h3>
+                    <p>SQL, MongoDB</p>
+                </div>
+                <div class="skill-card">
+                    <h3>Tools</h3>
+                    <p>Git, VS Code</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="image1.png" alt="Project 1">
+                    <h3>E-learning platform</h3>
+                    <p>Full-stack web application with angular and Flask.
+                        An e-learning platform that offers online courses with interactive content, quizzes, and progress tracking. Users can register, access personalized dashboards, and earn certifications, making learning accessible and engaging for students and professionals.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <img src="image2.png" alt="Project 2">
+                    <h3>Job placement cell</h3>
+                    <p>A web-based application to automate job placement cell operations. Students can register, upload resumes, and apply for jobs, while recruiters can post openings and manage applications. An admin panel handles data, notifications, and placement reports, streamlining the entire process.</p>
+                </div>
+                <div class="project-card">
+                    <img src="image3.png" alt="Project 3">
+                    <h3>AI chatbot</h3>
+                    <p>data processing application.</p>
+                    <p> A chatbot that uses natural language processing and machine learning to provide personalized responses and recommendations. It can assist users with queries, offer product suggestions, and provide customer support, enhancing user engagement and satisfaction.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Me</h2>
+            <form class="contact-form" id="contactForm">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Jyoti Gupta. All rights reserved.</p>
+        <div class="social-links">
+            <a href="www.linkedin.com/in/jyoti-gupta-b47689285" target="_blank" aria-label="LinkedIn">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/linkedin.png" alt="LinkedIn">
+            </a>
+            <a href="https://github.com/jyoti038" target="_blank" aria-label="GitHub">
+                <img src="https://img.icons8.com/ios-filled/50/ffffff/github.png" alt="GitHub">
+            </a>
+        </div>
+    </footer>
+    
+    <style>
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    
+        .social-links {
+            margin-top: 1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+    
+        .social-links a {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            transition: transform 0.3s ease;
+        }
+    
+        .social-links a img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+    
+        .social-links a:hover {
+            transform: scale(1.2);
+        }
+    </style>
+    
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.nav-link').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Section reveal animation
+        const sections = document.querySelectorAll('section');
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, observerOptions);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            // In a real-world scenario, you'd send this to a backend service
+            alert(`Thank you, ${name}! Your message has been received.`);
+            
+            // Clear form
+            this.reset();
+        });
+    </script>
+</body>
+</html>
